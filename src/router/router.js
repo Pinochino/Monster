@@ -1,4 +1,4 @@
-import Account from "~/pages/account/account";
+import { Account } from "~/pages/account";
 import Home from "~/pages/home/home";
 import Login from "~/pages/login/login";
 

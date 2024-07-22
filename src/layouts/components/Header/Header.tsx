@@ -10,7 +10,7 @@ const cx = classNames.bind(style);
 
 function Header() {
     return (
-   <div>
+   <div className={cx('header')}>
        <Box className={cx("wrapper-head")} >
           <Box className={cx("panel-head")}>
              <HeaderHead />

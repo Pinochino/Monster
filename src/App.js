@@ -9,7 +9,6 @@ import { publicRoutes } from "./router/router";
 
 
 
-
 const cx = classNames.bind(styles);
 
 function App() {

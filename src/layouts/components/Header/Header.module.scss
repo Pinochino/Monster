@@ -1,20 +1,28 @@
+.header {
+    > *{
+        border-bottom: 1px solid #e7e7e7;
+    }
+}
 .wrapper-head {
     width: 100%;
     display: flex;
     justify-content: center;
     height: 2.5rem;
-    border-bottom: 1px solid #e5e5e5;
+    
     align-items: center;
-    color: #C7C8CC;
+    color: #888888;
 
-    .panel-head{
+    .panel-head {
         min-width: 1400px;
-        background: green;
     }
 }
 
-.wrapper-body{
-    background: red;
+.wrapper-body {
     height: 7rem;
-}
+    display: flex;
+    justify-content: center;
 
+    .panel-body {
+        min-width: 1400px;
+    }
+}
