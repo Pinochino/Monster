@@ -5,3 +5,27 @@
     }
 }
 
+.Menu {
+   position: relative;
+
+    .ContentToggle > *:not(:last-child){
+        border-bottom: 1px solid #E4E6EB;
+    }
+
+    Button {
+        padding: 0px;
+    }
+
+    // .MuiTypography-h5::before {
+      
+    // }
+}
+.Menu::before{
+    position: absolute;
+    content: '';
+    background: #dedede;
+    height: 1.25rem;
+    width: 2px;
+    top: 0;
+    right: 0;
+}

@@ -6,12 +6,15 @@
     box-sizing: border-box;
 }
 
-:root {
-    --text-color: #C7C8CC;
-    --primary-color: #F05454;
-    --border-color: #e7e7e7;
-
-
+:root{
+    --white-color: #fff;
+    --black-color: black;
+    --border-radius-50px: 50%;
+    --fz-14: 14px;
+    --background-btn: #EE4266;
+    --text-product-color: #216fe6;
+    --text-span-color: #C7C8CC;
+    --border--color: #e5e5e5;
 }
 
 .App{
@@ -31,6 +34,7 @@
 body {
     font-family: var(--font-family);
     text-rendering: optimizeSpeed;
+    color: var(--text-span-color);
     height: 100%;
     width: 100%;
 }

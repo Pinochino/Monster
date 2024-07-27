@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./HeaderBottom.module.scss";
-import { Box, Typography } from "@mui/material";
+import { Box,  Typography } from "@mui/material";
 
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
 import { RiMenu2Line } from "react-icons/ri";
@@ -16,12 +16,12 @@ function HeaderBottom() {
     setShow(!show);
   };
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      handleShow();
-    }, 5000);
-    return () => clearTimeout(timeout);
-  }, []);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     handleShow();
+  //   }, 5000);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   return (
     <Box
@@ -29,13 +29,15 @@ function HeaderBottom() {
       display="flex"
       justifyContent="space-between"
       alignItems="center"
-      fontSize="14"
+      fontSize="12px"
       fontWeight="500"
+      color='black'
     >
       <Box
         className={cx("Menu")}
         display="inline-flex"
         justifyContent="space-between"
+        alignItems='center'
       >
         <Button onClick={handleShow}>
           <FormatAlignLeftIcon />
@@ -43,8 +45,16 @@ function HeaderBottom() {
         {show && (
           <Box display='flex'
           flexDirection='column'
+          position='absolute'
+          top='0'
+          left='0'
+          sx={{transform: "translate(-30%, 40%)", border: "1px solid #e9e9e9"}}
+          padding='5px 10px'
+          className={cx('ContentToggle')}
+          borderRadius='5px'
           >
             <Typography variant="h5">Trang chủ</Typography>
+
             <Typography variant="h5">Danh mục</Typography>
             <Typography variant="h5">Bài viết</Typography>
             <Typography variant="h5">Hỗ trợ</Typography>
