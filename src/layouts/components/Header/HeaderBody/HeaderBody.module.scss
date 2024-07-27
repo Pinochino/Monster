@@ -39,3 +39,9 @@
         margin: 5px;
     }
 }
+
+.mode{
+    > *:not(:last-child){
+        margin: 0 1rem;
+    }
+}

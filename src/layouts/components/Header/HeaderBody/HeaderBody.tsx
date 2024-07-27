@@ -35,7 +35,7 @@ function HeaderBody() {
       >
         <Box
           border="1px solid #e7e7e7"
-          width="70%"
+          width="75%"
           display="flex"
           alignItems="center"
           height="40%"
@@ -56,10 +56,10 @@ function HeaderBody() {
 
       <Box
         className={cx("mode")}
-        display="inline-flex"
+        display="flex"
         justifyContent="space-between"
         alignItems="center"
-        flex="0.2888"
+        
       >
 
         <Box className={cx("login")}

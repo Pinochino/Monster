@@ -20,6 +20,7 @@ interface ButtonProps {
   className?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  centerIcon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
@@ -37,6 +38,7 @@ function Button({
   className,
   leftIcon,
   rightIcon,
+  centerIcon,
   onClick,
   ...passProps
 }: ButtonProps) {
@@ -95,6 +97,7 @@ function Button({
     className: PropTypes.bool,
     leftIcon: PropTypes.node,
     rightIcon: PropTypes.node,
+    centerIcon: PropTypes.node,
     onClick: PropTypes.func,
   }
 

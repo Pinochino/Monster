@@ -1,0 +1,7 @@
+.Menu,
+.advertise{
+    > *:not(:first-child){
+        margin: 0 10px;
+    }
+}
+

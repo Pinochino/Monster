@@ -26,3 +26,17 @@
         min-width: 1400px;
     }
 }
+
+.wrapper-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 2.5rem;
+    
+    align-items: center;
+    color: #888888;
+
+    .panel-bottom {
+        min-width: 1400px;
+    }
+}
