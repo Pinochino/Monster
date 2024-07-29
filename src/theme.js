@@ -174,15 +174,15 @@ export const themeSettings = (mode) => {
                 fontSize: 24,
             },
             h4: {
-                fontFamily: ["Source S", "sans-serif"].join(","),
+                fontFamily: ["Roboto", "sans-serif"].join(","),
                 fontSize: 20,
             },
             h5: {
-                fontFamily: ["Source S", "sans-serif"].join(","),
-                fontSize: 16,
+                fontFamily: ["Roboto", "sans-serif"].join(","),
+                fontSize: 15,
             },
             h6: {
-                fontFamily: ["Source S", "sans-serif"].join(","),
+                fontFamily: ["Roboto", "sans-serif"].join(","),
                 fontSize: 14,
             },
         },

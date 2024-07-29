@@ -6,6 +6,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Fragment } from "react";
 import DefaultLayout from "./layouts/DefaultLayout";
 import { publicRoutes } from "./router/router";
+import GlobalStyle from "./styles/GlobalStyle";
 
 
 
@@ -16,8 +17,11 @@ function App() {
 
   return (
     <ColorModeContext.Provider value={colorMode}>
+      <GlobalStyle>
+    
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        
         <Router>
           <div className={cx("App")}>
             <main className={cx("content")}>
@@ -50,6 +54,8 @@ function App() {
           </div>
         </Router>
        </ThemeProvider>
+           
+      </GlobalStyle>
      </ColorModeContext.Provider>
   );
 }

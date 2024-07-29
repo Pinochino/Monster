@@ -1,1 +1,1 @@
-export {default} from './GlobalStyle.tsx';
+export {default} from './GlobalStyle';

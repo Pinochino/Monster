@@ -1,0 +1,10 @@
+.wrapper {
+    
+    > *:not(:last-child) {
+        padding: 5px 0;
+        border-bottom: 1px solid  #e9e9e9 !important;
+        
+    }
+
+}
+

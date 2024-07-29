@@ -1,14 +1,19 @@
+:root{
+    --min-width: 1380px;
+
+}
+
 .panel-slider{
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 2.5rem;
+    height: fit-content;
     
     align-items: center;
     color: #333333;
 
     .panel-body{
-        min-width: 1400px;
+        min-width: var(--min-width);
     }
     
 }

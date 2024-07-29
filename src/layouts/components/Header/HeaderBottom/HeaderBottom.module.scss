@@ -16,9 +16,6 @@
         padding: 0px;
     }
 
-    // .MuiTypography-h5::before {
-      
-    // }
 }
 .Menu::before{
     position: absolute;
@@ -28,4 +25,5 @@
     width: 2px;
     top: 0;
     right: 0;
+    transform: translateX(10rem);
 }
