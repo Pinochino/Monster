@@ -40,7 +40,7 @@ function HeaderBottom() {
         alignItems='center'
       >
         <Button onClick={handleShow}>
-          <FormatAlignLeftIcon />
+          <FormatAlignLeftIcon sx={{cursor: 'pointer'}} />
         </Button>
         {show && (
           <Box display='flex'

@@ -1,0 +1,46 @@
+.text{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.mode{
+
+    .text::before{
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 5px;
+        left: 0;
+        top: 0;
+        background: #333;
+        color: #333;
+    }
+
+} 
+.link {
+    text-decoration: none;
+    color: #0866FF;
+}
+
+.text-disable::before{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 1.7rem;
+    background: #DDDFE2;
+    left: 0;
+    transform: translate(5.4rem, 0.6rem);
+}
+.text-disable::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 1.7rem;
+    background: #DDDFE2;
+    right: 0;
+    transform: translate(-5.4rem, 0.6rem);
+    line-height: 20px;
+}
+.text.text-disable{
+    color: #DDDFE2;
+}

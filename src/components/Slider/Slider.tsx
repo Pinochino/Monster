@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import classNames from 'classnames/bind';
-import style from './Slider.module.scss'
+import style from './Slider.module.scss';
 import Image from '../Image';
 import images from '~/assets/images/Image';
 import { Box } from '@mui/material';
@@ -25,7 +25,7 @@ function Slider() {
                 margin: '0 15px 0 15px',
             },
             '.MuiBox-root.css-1fla0u8': {
-                marginBottom: '15px',
+                marginBottom: '0px',
             }
         }}>
             <Box
@@ -55,24 +55,21 @@ function Slider() {
                     loop={true}
                     navigation={true}
                     pagination={{ clickable: true }}
-                // autoplay={{
-                //     delay: 1000,
-                //     disableOnInteraction: false,
-                // }}
 
                 >
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
                 </Swiper>
             </Box>
             <Box 
+            display='flex'
+            justifyContent='space-between'
                 sx={{
-                    '.swiper-slide > img': {
+                    '&  .swiper-slide > img': {
                         minHeight: '120px', 
-                    },
-                    '.swiper  .swiper-slide > *': {
-                        marginRight: '0px'
+                        // width: '140px',
+                        padding: '10px 0px 10px 0px'
                     },
                 }}
             >
@@ -81,25 +78,25 @@ function Slider() {
                     className={cx('mySwiper2')}
                     modules={[ Autoplay, Keyboard]}
                     slidesPerView={5}
-                    spaceBetween={1}
+                    spaceBetween={10}
                     keyboard={{ enabled: true }}
                     loop={true}
-                    // autoplay={{
-                    //     delay: 1500,
-                    //     disableOnInteraction: true,
-                    // }}
+                    autoplay={{
+                        delay: 1500,
+                        disableOnInteraction: true,
+                    }}
                     breakpoints={{
                         640: {
                             slidesPerView: 2,
-                            spaceBetween: 20,
+                            spaceBetween: 2,
                         },
                         768: {
                             slidesPerView: 4,
-                            spaceBetween: 40,
+                            spaceBetween: 4,
                         },
                         1024: {
                             slidesPerView: 5,
-                            spaceBetween: 50,
+                            spaceBetween: 10,
                         },
                     }}
                 >

@@ -2,11 +2,12 @@ import { CssBaseline,  ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import classNames from "classnames/bind";
 import styles from "./App.css"; 
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Fragment } from "react";
-import DefaultLayout from "./layouts/DefaultLayout";
 import { publicRoutes } from "./router/router";
 import GlobalStyle from "./styles/GlobalStyle";
+import { DefaultLayout } from "./layouts";
+
 
 
 
@@ -18,16 +19,13 @@ function App() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <GlobalStyle>
-    
       <ThemeProvider theme={theme}>
         <CssBaseline />
         
         <Router>
           <div className={cx("App")}>
-            <main className={cx("content")}>
               <Routes>
                 {publicRoutes.map((route, index) => {
-
                   let Layout = DefaultLayout;
                   if (route.layout) {
                     Layout = route.layout;
@@ -50,11 +48,10 @@ function App() {
                   );
                 })}
               </Routes>
-            </main>
+           
           </div>
         </Router>
        </ThemeProvider>
-           
       </GlobalStyle>
      </ColorModeContext.Provider>
   );

@@ -1,14 +1,10 @@
 import { Box } from "@mui/material";
-import classNames from "classnames/bind";
 import React from "react";
-import styles from './PanelSlider.module.scss'
 import Menu from "~/components/Menu";
-import images from "~/assets/images/Image";
 import Slider from "~/components/Slider";
 
 
 
-const cx = classNames.bind(styles);
 
 function PanelSlider() {
     return (

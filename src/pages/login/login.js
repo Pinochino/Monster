@@ -1,6 +1,9 @@
+import React from "react";
+import LoginForm from "./layouts/LoginForm";
+
 function Login() {
     return (
-        <div>Login Page</div>
+        <div><LoginForm /></div>
       );
 }
 

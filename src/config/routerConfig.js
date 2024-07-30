@@ -3,6 +3,7 @@ const routerConfigs = {
     login: '/login',
     product: '/product',
     account: '/account',
+    signin: '/signin',
 
 }
 export default routerConfigs;
