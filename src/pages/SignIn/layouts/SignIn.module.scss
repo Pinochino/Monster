@@ -1,11 +1,11 @@
-.text{
+.text {
     font-size: 13px;
     font-weight: 500;
 }
 
-.mode{
+.mode {
 
-    .text::before{
+    .text::before {
         content: '';
         position: absolute;
         width: 15px;
@@ -16,13 +16,14 @@
         color: #333;
     }
 
-} 
+}
+
 .link {
     text-decoration: none;
     color: #0866FF;
 }
 
-.text-disable::before{
+.text-disable::before {
     content: '';
     position: absolute;
     height: 1px;
@@ -31,7 +32,8 @@
     left: 0;
     transform: translate(5.4rem, 0.6rem);
 }
-.text-disable::after{
+
+.text-disable::after {
     content: '';
     position: absolute;
     height: 1px;
@@ -41,6 +43,13 @@
     transform: translate(-5.4rem, 0.6rem);
     line-height: 20px;
 }
-.text.text-disable{
+
+.text.text-disable {
     color: #DDDFE2;
+}
+
+.error {
+    color: red;
+    margin-top: -1px;
+    text-align: left;
 }
