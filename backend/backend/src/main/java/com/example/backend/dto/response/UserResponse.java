@@ -6,7 +6,6 @@ import lombok.experimental.FieldDefaults;
 
 import java.util.UUID;
 
-@Entity
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,7 +15,8 @@ public class UserResponse {
 
     UUID Id;
     String surname;
-    String name;
+    String username;
+    String email;
     String password;
     String repassword;
 

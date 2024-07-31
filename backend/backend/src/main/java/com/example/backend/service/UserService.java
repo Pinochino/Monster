@@ -1,6 +1,8 @@
 package com.example.backend.service;
 
 
+import com.example.backend.dto.request.UserCreationRequest;
+import com.example.backend.dto.request.UserUpdateRequest;
 import com.example.backend.dto.response.UserResponse;
 import com.example.backend.entity.User;
 import org.springframework.stereotype.Service;
@@ -16,7 +18,9 @@ public interface UserService {
 
     UserResponse getUserById(UUID id);
 
-    UserResponse update(UUID id);
+    User createUser(UserCreationRequest request);
+
+    UserResponse update(UUID id, UserUpdateRequest request);
 
     void deleteUserById(UUID id);
 }

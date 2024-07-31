@@ -6,6 +6,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import images from "~/assets/images/Image";
 import { Link } from "react-router-dom";
 import Validation from "./Validation";
+import { post } from "jquery";
 
 
 const cx = classNames.bind(style);
@@ -45,10 +46,16 @@ function SignIn() {
         setValues(values => ({ ...values, [name]: value }))
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(values);
         setError(Validation(values));
+        try {
+            const response = await post('/api/user', values);
+            console.log("User created: ", response);
+        } catch (error) {
+            console.error('Error creating user ', error);
+        }
     };
 
     return (
