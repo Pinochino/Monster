@@ -1,1 +1,1 @@
-export {default} from './PanelSlider.tsx';
+export {default} from './PanelSlider';

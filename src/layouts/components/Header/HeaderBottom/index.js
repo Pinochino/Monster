@@ -1,1 +1,1 @@
-export {default} from './HeaderBottom.tsx';
+export {default} from './HeaderBottom';

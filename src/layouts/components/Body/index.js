@@ -1,1 +1,1 @@
-export {default} from './Body.tsx';
+export {default} from './Body';
