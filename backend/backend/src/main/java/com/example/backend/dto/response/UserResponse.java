@@ -14,6 +14,7 @@ import java.util.UUID;
 public class UserResponse {
 
     UUID Id;
+    String posterUrl;
     String surname;
     String username;
     String email;

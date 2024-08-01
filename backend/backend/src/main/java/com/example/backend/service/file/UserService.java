@@ -1,4 +1,4 @@
-package com.example.backend.service;
+package com.example.backend.service.file;
 
 
 import com.example.backend.dto.request.UserCreationRequest;

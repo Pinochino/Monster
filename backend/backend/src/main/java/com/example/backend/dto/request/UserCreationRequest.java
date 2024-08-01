@@ -13,6 +13,8 @@ public class UserCreationRequest {
     @Size(message = "SURNAME_INVALID", min = 10)
     String surname;
 
+    String posterUrl;
+
     @Size(message = "NAME_INVALID", min = 10)
     String username;
 

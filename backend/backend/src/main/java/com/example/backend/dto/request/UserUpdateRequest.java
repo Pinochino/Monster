@@ -6,6 +6,8 @@ import lombok.Data;
 @Data
 public class UserUpdateRequest {
 
+    String posterUrl;
+
     @Size(message = "SURNAME_INVALID", min = 10)
     String surname;
 

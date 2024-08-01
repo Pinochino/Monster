@@ -22,6 +22,7 @@ const publicRoutes = [
     {
         path: routerConfigs.account,
         component: Account,
+        layout: null
     },
 
     {

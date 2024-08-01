@@ -1,4 +1,4 @@
-package com.example.backend.service;
+package com.example.backend.service.file;
 
 import com.example.backend.dto.request.UserCreationRequest;
 import com.example.backend.dto.request.UserUpdateRequest;
@@ -8,6 +8,7 @@ import com.example.backend.handle.AppException;
 import com.example.backend.handle.ErrorCode;
 import com.example.backend.mapper.UserMapper;
 import com.example.backend.repository.UserRepository;
+import com.example.backend.service.file.UserService;
 import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     UserRepository userRepository;
     UserMapper userMapper;

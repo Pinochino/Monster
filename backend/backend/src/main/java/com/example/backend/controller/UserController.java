@@ -5,7 +5,7 @@ import com.example.backend.dto.request.UserUpdateRequest;
 import com.example.backend.dto.response.ApiResponse;
 import com.example.backend.dto.response.UserResponse;
 import com.example.backend.entity.User;
-import com.example.backend.service.UserService;
+import com.example.backend.service.file.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

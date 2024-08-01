@@ -20,6 +20,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID Id;
 
+    @Lob
+    @NotBlank(message = "Please enter the user's image")
+    String posterUrl;
+
     @Column(length = 100)
     @NotBlank(message = "Please enter the user's surname")
     String surname;
