@@ -1,6 +1,7 @@
 # Task
 + Frontend
 + Backend
+  - JPA : CRUD DATA <Note: Upload file, Get file url>
 
 
 # Getting Started with Create React App
