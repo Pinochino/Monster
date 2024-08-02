@@ -1,29 +1,26 @@
 package com.example.backend.controller;
 
-import com.example.backend.service.user.FileService;
+import com.example.backend.service.file.FileService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
 @RestController
-@RequestMapping("/file")
+@RequestMapping("/file/")
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class FileController {
 
     FileService fileService;
-
 
     String path;
     @Autowired
@@ -32,13 +29,13 @@ public class FileController {
         this.path = path;
     }
 
-    @PostMapping("/upload")
+    @PostMapping("upload")
     public ResponseEntity<String> uploadFileHandler(@RequestPart MultipartFile file) throws IOException {
         String uploadedFileName = fileService.uploadFile(path, file);
          return ResponseEntity.ok("File upload: " + uploadedFileName);
     }
 
-    @GetMapping("/{fileName}")
+    @GetMapping("{fileName}")
     public void serveFileHandler(@PathVariable String fileName, HttpServletResponse response) throws IOException {
         InputStream resourceFile = fileService.getResourceFile(path, fileName);
 

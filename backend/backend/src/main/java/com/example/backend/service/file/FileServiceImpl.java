@@ -1,4 +1,4 @@
-package com.example.backend.service.user;
+package com.example.backend.service.file;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -6,13 +6,14 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 
 @Service
-public class FileServiceImpl implements FileService{
+public class FileServiceImpl implements FileService {
     @Override
     public String uploadFile(String path, MultipartFile file) throws IOException {
-
+        if (Files.exists(Paths.get(path + File.separator + file.getOriginalFilename()))) {
+            throw new RuntimeException("File already exists! Please enter another file name!");
+        }
         // get name of file
         String fileName = file.getOriginalFilename();
 
@@ -27,7 +28,7 @@ public class FileServiceImpl implements FileService{
         }
 
         // copy file or upload file to the path
-        Files.copy(file.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+        Files.copy(file.getInputStream(), Paths.get(filePath));
 
         return fileName;
     }

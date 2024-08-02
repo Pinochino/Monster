@@ -1,4 +1,4 @@
-package com.example.backend.service.user;
+package com.example.backend.service.file;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

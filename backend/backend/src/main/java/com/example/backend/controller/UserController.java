@@ -1,57 +1,63 @@
 package com.example.backend.controller;
 
-import com.example.backend.dto.request.UserCreationRequest;
-import com.example.backend.dto.request.UserUpdateRequest;
-import com.example.backend.dto.response.ApiResponse;
-import com.example.backend.dto.response.UserResponse;
-import com.example.backend.entity.User;
-import com.example.backend.service.file.UserService;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.backend.dto.UserDto;
+import com.example.backend.service.user.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
 
 @RestController
-@CrossOrigin
-@RequestMapping(value = "/api")
+@RequestMapping("/api")
 public class UserController {
 
-    private final UserService userService;
+    private  final  UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping("/users")
-    public List<User> getAllUser(){
-        return userService.getAllUser();
+    public ResponseEntity<List<UserDto>> getAllUser(){
+        return ResponseEntity.ok(userService.getAllUser());
     }
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable UUID id){
-        UserResponse response = userService.getUserById(id);
+    public ResponseEntity<UserDto> getUserById(@PathVariable UUID id){
+        UserDto response = userService.getUserById(id);
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/user")
-    public ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request){
-        ApiResponse<User> response = new ApiResponse<>();
-        response.setResult(userService.createUser(request));
-        return response;
+    @PostMapping(value = "/user", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<UserDto> createUser(@RequestPart() String request,
+                                                   @RequestPart() MultipartFile file) throws IOException {
+       UserDto userResponse = convertToUserResponse(request);
+       return new ResponseEntity<>(userService.createUser(userResponse, file), HttpStatus.CREATED);
+    }
+
+    private UserDto convertToUserResponse(String userDto) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(userDto, UserDto.class);
     }
 
     @PutMapping("/user/{id}")
-    public UserResponse updateUserById(@PathVariable UUID id, @RequestBody UserUpdateRequest request){
-        return  userService.update(id, request);
+    public ResponseEntity<UserDto> updateUserById(@PathVariable UUID id, @RequestPart MultipartFile file,
+                                                  @RequestPart String request) throws IOException {
+       if (file.isEmpty()) file = null;
+        UserDto userDto =  convertToUserResponse(request);
+        return ResponseEntity.ok(userService.update(id, userDto, file));
     }
 
     @DeleteMapping("/user/{id}")
-    public void deleteUserById(@PathVariable UUID id){
-        userService.deleteUserById(id);
+    public ResponseEntity<String> deleteUserById(@PathVariable UUID id) throws IOException {
+        return ResponseEntity.ok(userService.deleteUserById(id));
     }
 }
