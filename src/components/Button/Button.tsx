@@ -42,7 +42,7 @@ function Button({
   onClick,
   ...passProps
 }: ButtonProps) {
-  let Comp: React.ElementType = 'button'; // Default to 'button' type
+  let Comp: React.ElementType = 'button'; 
   const props: any = {
     onClick,
     ...passProps,

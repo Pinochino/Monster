@@ -5,7 +5,6 @@ import style from './PanelHead.module.scss'
 
 import { CiClock1 } from "react-icons/ci";
 import Button from "~/components/Button";
-import Icon from "~/components/Icon/Icon";
 
 const cx = classNames.bind(style);
 function PanelHead() {
@@ -14,20 +13,15 @@ function PanelHead() {
             <Box display="inline-flex" 
             alignItems='center'
             p='15px 0'
-            sx={{
-                "& > svg": {
+            sx={{"& > svg": {
                     height: '25px',
-                    width: '25px',
-                },
+                    width: '25px',},
                 "& > *": {
-                    m: '0 5px'
-                }
-            
-            }}
+                    m: '0 8px'}}}
             >
                <CiClock1 color="red"/>
-                <Typography variant="h4">HOT DEALS</Typography>
-                <Typography variant="h4">GIÁ TỐT NHẤT</Typography>
+                <Typography variant="h4">HOT DEALS </Typography>
+                <Typography variant="h4"> GIÁ TỐT NHẤT</Typography>
             </Box>
 
             <Box flex='0.5'>
