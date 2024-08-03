@@ -21,8 +21,8 @@ function Header() {
                 <HeaderBody />
              </Box>
          </Box>
-         <Box className={cx("wrapper-bottom")} >
-             <Box className={cx("panel-bottom")}>
+         <Box className={cx("wrapper-head")} >
+             <Box className={cx("panel-head")}>
                   <HeaderBottom />
              </Box>
          </Box>

@@ -21,4 +21,6 @@ public interface UserService {
     UserDto update(UUID id, UserDto userDto, MultipartFile file) throws IOException;
 
     String deleteUserById(UUID id) throws IOException;
+
+    Boolean checkUserByEmailAndPassword(String email, String password);
 }

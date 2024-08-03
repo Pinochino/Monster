@@ -6,7 +6,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import images from "~/assets/images/Image";
 import { Link } from "react-router-dom";
 import Validation from "./Validation";
-import { post } from "jquery";
+import { registerAPICall } from "~/service/AuthService";
 
 
 const cx = classNames.bind(style);
@@ -18,7 +18,7 @@ function SignIn() {
     const [values, setValues] = useState({
         image: '',
         surname: '',
-        name: '',
+        username: '',
         email: '',
         password: '',
         checkPassword: ''
@@ -50,13 +50,14 @@ function SignIn() {
         event.preventDefault();
         console.log(values);
         setError(Validation(values));
+
         try {
-            const response = await post('/api/user', values);
-            console.log("User created: ", response);
+            const response = await registerAPICall(values);
+            alert("User has signed in successfully: " + response);
         } catch (error) {
-            console.error('Error creating user ', error);
+            alert(error);
         }
-    };
+    }
 
     return (
         <Box
@@ -104,7 +105,7 @@ function SignIn() {
                         justifyContent='space-between'
                         mt='5px'
                     >
-                        <form onSubmit={handleSubmit}>
+                        <form >
                             <Box display='flex' flexDirection='column'>
                                 <Box className={cx('form-group')}
                                     display='flex'
@@ -130,10 +131,10 @@ function SignIn() {
                                             label='Tên'
                                             variant="outlined"
                                             name="name"
-                                            value={values.name}
+                                            value={values.username}
                                             onChange={handleChangeInfo}
                                         />
-                                        {error.name && <p className={cx('error')}>{error.name}</p>}
+                                        {error.name && <p className={cx('error')}>{error.username}</p>}
                                  </Box>
 
                                 </Box>
@@ -233,6 +234,7 @@ function SignIn() {
                                     <span>Bạn đã có tài khoản <Link style={{ textDecoration: 'none', color: '#0866FF' }}>Đăng nhập</Link></span>
                                     <Button type="submit" variant="outlined" color='info'
                                         sx={{ width: '90%' }}
+                                        onClick={handleSubmit}
                                     >Đăng kí</Button>
                                 </Box>
                             </Box>

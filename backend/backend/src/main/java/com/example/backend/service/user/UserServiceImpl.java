@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -50,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
         List<UserDto> userDtos = new ArrayList<>();
         // 2.Iterate through the list, generate posterUrl for each movie obj,
-        for (User user:list) {
+        for (User user : list) {
             String posterUrl = baseUrl + "/file/" + user.getPoster();
             UserDto userDto = new UserDto(
                     user.getId(),
@@ -89,7 +90,7 @@ public class UserServiceImpl implements UserService {
                 posterUrl
         );
 
-        return  userDto;
+        return userDto;
     }
 
     @Override
@@ -125,7 +126,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto update(UUID id, UserDto userDto, MultipartFile file) throws IOException {
-    // 1. Check if user object exists with given id
+        // 1. Check if user object exists with given id
         User mv = userRepository.findById(id).orElseThrow(() -> new RuntimeException("Not found the user"));
 
 
@@ -159,7 +160,6 @@ public class UserServiceImpl implements UserService {
         String posterUrl = baseUrl + "/file/" + fileName;
 
 
-
         // 7. map to UserDto and return it
         UserDto response = new UserDto(
                 user.getId(),
@@ -191,7 +191,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     @Override
     @Transactional
     public String deleteUserById(UUID id) throws IOException {
@@ -204,7 +203,17 @@ public class UserServiceImpl implements UserService {
         // 3. delete the user object
         userRepository.delete(mv);
 
-        return "User deleted with id: "+ id;
+        return "User deleted with id: " + id;
     }
+
+    @Override
+    public Boolean checkUserByEmailAndPassword(@RequestParam String email,
+                                               @RequestParam String password) {
+        if (!userRepository.existsUserByEmailAndPassword(email, password)) {
+            return false;
+        }
+        return true;
+    }
+
 
 }

@@ -1,15 +1,19 @@
+:root{
+    --primary-color: #F5004F;
+    --white-color: #fff;
+
+}
+
 .wrapper {
     border-radius: 4px;
-    font-size: 1.6rem;
     font-family: var(--font-family);
     font-weight: 700;
-    background-color: var(--white-color);
     border: 1px solid transparent;
     user-select: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
+   background-color: var(--white-color);
     + .wrapper {
         margin-left: 8px;
     }
@@ -56,8 +60,10 @@
 
 .text {
     border: 1px solid rgba(22, 24, 35, 0.12);
-    background: var(--white-color);
+    background: var(--primary-color);
     text-align: center;
+    padding: 10px;
+    color: var(--white-color);
 
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);

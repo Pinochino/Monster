@@ -55,11 +55,10 @@ function Slider() {
                     loop={true}
                     navigation={true}
                     pagination={{ clickable: true }}
-
                 >
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='360px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='360px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='360px' width='100%' scaledown className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
                 </Swiper>
             </Box>
             <Box 

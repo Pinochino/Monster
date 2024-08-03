@@ -1,1 +1,1 @@
-export {default} from './HeaderHead.js';
+export {default} from './HeaderHead.tsx';

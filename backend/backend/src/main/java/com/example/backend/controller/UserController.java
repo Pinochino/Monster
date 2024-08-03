@@ -16,6 +16,7 @@ import java.util.UUID;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api")
 public class UserController {
 
@@ -59,5 +60,21 @@ public class UserController {
     @DeleteMapping("/user/{id}")
     public ResponseEntity<String> deleteUserById(@PathVariable UUID id) throws IOException {
         return ResponseEntity.ok(userService.deleteUserById(id));
+    }
+
+    @PostMapping("/check")
+    public ResponseEntity<Boolean> checkUserByEmailAndPassword(String email, String password){
+        if (email == null || password == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+        try {
+            boolean exists = userService.checkUserByEmailAndPassword(email, password);
+            return ResponseEntity.ok(exists);
+
+        } catch (Exception e){
+            throw e;
+        }
+
     }
 }
