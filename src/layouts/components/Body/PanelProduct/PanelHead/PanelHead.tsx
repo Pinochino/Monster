@@ -15,16 +15,20 @@ function PanelHead() {
             p='15px 0'
             sx={{"& > svg": {
                     height: '25px',
-                    width: '25px',},
-                "& > *": {
-                    m: '0 8px'}}}
+                    width: '25px',
+                    ml: '10px'
+                },
+                "& > h4": {
+                    m: '0 8px !important',
+                    fontSize: '14px !important'
+                }}}
             >
-               <CiClock1 color="red"/>
-                <Typography variant="h4">HOT DEALS </Typography>
-                <Typography variant="h4"> GIÁ TỐT NHẤT</Typography>
+                <CiClock1 color="red"/>
+                <Typography variant="h4" color='red'>HOT DEALS! </Typography>
+                <Typography variant="h4" color='#888888'> GIÁ TỐT NHẤT</Typography>
             </Box>
 
-            <Box flex='0.5'>
+            <Box flex='0.5' display='flex' justifyContent='space-around' alignItems='center'>
                 <span>Nhanh lên! Ưu đãi sẽ kết thúc sau: </span>
                 <Button text>7 Ngày</Button>
                 <Button text>8 Giờ</Button>

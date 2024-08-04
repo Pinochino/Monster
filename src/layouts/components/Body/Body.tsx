@@ -17,7 +17,7 @@ function Body() {
              </Box>
          </Box>
 
-         <Box className={cx("panel-slider")} mb='30px'>
+         <Box className={cx("panel-product")} mb='30px'>
              <Box className={cx("panel-body")}>
                 <PanelProduct />
              </Box>

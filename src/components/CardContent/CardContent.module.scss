@@ -1,37 +1,43 @@
-
-.newCost{
+.newCost {
     color: red;
     font-weight: 700;
     font-size: 15px;
 }
 
-.oldCost{
+.oldCost {
     color: #888888;
     font-weight: 600;
-      text-decoration: line-through;
-      font-size: 12px;
-      margin: 0 5px;
+    text-decoration: line-through;
+    font-size: 12px;
+    margin: 0 5px;
 }
 
-.discount{
+.discount {
     background-color: red;
-    padding: 5px;
+    padding: 3px;
     border-radius: 50px;
     color: white;
     position: absolute;
-    transform: translate(10px, 10px);
     z-index: 1;
+    left: 24px;
 }
 
 .title {
-    font-size: 13px;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    font-size: 14px;
     font-weight: 600;
-    text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+    padding: 10px 0;
 }
 
-.text{
+.text {
     font-weight: 700;
 }
-.image{
+
+.image {
     position: relative;
 }

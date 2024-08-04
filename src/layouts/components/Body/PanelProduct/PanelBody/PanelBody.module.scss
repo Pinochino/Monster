@@ -1,0 +1,17 @@
+.mySwiper3 {
+
+    .swiper-button-prev {
+        align-items: center;
+        background: red!important;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+        display: flex;
+        font-size: 1.8rem;
+        height: 60px;
+        justify-content: center;
+        opacity: .8;
+        outline: none;
+        top: 50%;
+        transition: .3s;
+        width: 30px;
+    }
+}

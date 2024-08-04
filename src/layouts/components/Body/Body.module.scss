@@ -1,5 +1,5 @@
 :root{
-    --min-width: 1380px;
+    --max-width: 1380px;
 
 }
 
@@ -13,6 +13,20 @@
     color: #333333;
 
     .panel-body{
-        min-width: var(--min-width);
+        min-width: var(--max-width);
+    }
+}
+
+.panel-product{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    
+    align-items: center;
+    color: #333333;
+
+    .panel-body{
+        max-width: var(--max-width);
     }
 }
