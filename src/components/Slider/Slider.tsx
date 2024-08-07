@@ -99,17 +99,17 @@ function Slider() {
                         },
                     }}
                 >
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
-                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
+                    <SwiperSlide><Image src={images.slider1} alt="slider" maxHeight='300px' width='100%' cover className={cx('image')} onClick={() => console.log("choose image")} to={undefined} href={undefined} /></SwiperSlide>
                 </Swiper>
             </Box>
         </Box>

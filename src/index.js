@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from '~/App';
 import GlobalStyle from './styles/GlobalStyle';
+import $ from 'jquery';
 
+window.jQuery = $;
+window.$ = $;
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

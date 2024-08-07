@@ -1,68 +1,91 @@
 .newCost {
-    color: red;
-    font-weight: 700;
-    font-size: 15px;
+  color: red;
+  font-weight: 700;
+  font-size: 15px;
 }
 
 .oldCost {
-    color: #888888;
-    font-weight: 600;
-    text-decoration: line-through;
-    font-size: 12px;
-    margin: 0 5px;
+  color: #888888;
+  font-weight: 600;
+  text-decoration: line-through;
+  font-size: 12px;
+  margin: 0 5px;
 }
 
 .discount {
-    background-color: red;
-    padding: 3px;
-    border-radius: 50px;
-    color: white;
-    position: absolute;
-    z-index: 1;
-    left: 24px;
+  background-color: red;
+  padding: 3px;
+  border-radius: 50px;
+  color: white;
+  position: absolute;
+  z-index: 1;
+  left: 1.4rem;
+  top: 1.4rem;
 }
 
 .title {
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    font-size: 14px;
-    font-weight: 600;
-    overflow: hidden;
-    position: relative;
-    z-index: 10;
-    padding: 10px 0;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  padding: 10px 0;
 }
 
 .text {
-    font-weight: 700;
+  font-weight: 700;
+}
+
+.button {
+  background: purple;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+
+  &.hover {
+    transform: translateY(-10%);
+    /* Di chuyển lên khi hover */
+  }
 }
 
 .image {
-    position: relative;
-}
-.wrapper {
-    transition: border-bottom 0.3s ease;
-
-    &.hover {
-        border-bottom: 1px solid purple;
-    }
+  position: relative;
 }
 
+.CardProgress,
+.CardStars,
+.image,
+.title,
+.CardPrice,
+.discount {
+  transition: transform 0.5s ease;
+  /* Hiệu ứng chuyển động cho các phần tử */
 
-
-.button {
-    display: none;
-
-    &.visible {
-        display: block;
-    }
+  &.hover {
+    transform: translateY(-30px);
+    /* Di chuyển lên khi hover */
+  }
 }
 
-.wrapper-body{
-    display: block;
+.CardGroup {
+  display: none;
 
-    &.invisible{
-        display: none;
-    }
+  &.hover {
+    transform: translateY(-15px);
+    transition: transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 2.5rem;
+    right: 1.5rem;
+  }
 }

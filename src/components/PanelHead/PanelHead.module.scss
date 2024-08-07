@@ -1,0 +1,21 @@
+.time {
+    
+    & > * {
+        background: red;
+        color: #fff;
+        padding: 5px;
+    }
+
+}
+.properties {
+    & > *{
+        margin: 0 5px;
+    } 
+
+    .MuiListItemText-primary {
+        
+        &.hover {
+            color: purple;
+        }    
+    }
+}

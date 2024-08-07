@@ -1,0 +1,78 @@
+import image from "~/assets/images/Product/image";
+
+const products = [
+    {
+        img: image.img1,
+        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
+        sold: "2",
+        newCost: '32.038.000',
+        oldCost: "32.050.000",
+        total: 55,
+        discount: "10%",
+    },
+    {
+        img: image.img1,
+        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
+        sold: "2",
+        newCost: '32.038.000',
+        oldCost: "32.050.000",
+        total: 55,
+        discount: "10%",
+    },
+    {
+        img: image.img1,
+        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
+        sold: "2",
+        newCost: '32.038.000',
+        oldCost: "32.050.000",
+        total: 55,
+        discount: "10%",
+    },
+    {
+        img: image.img1,
+        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
+        sold: "2",
+        newCost: '32.038.000',
+        oldCost: "32.050.000",
+        total: 55,
+        discount: "10%",
+    },
+    {
+        img: image.img1,
+        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
+        sold: "2",
+        newCost: '32.038.000',
+        oldCost: "32.050.000",
+        total: 55,
+        discount: "10%",
+    },
+    {
+        img: image.img1,
+        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
+        sold: "2",
+        newCost: '32.038.000',
+        oldCost: "32.050.000",
+        total: 55,
+        discount: "10%",
+    },
+    {
+        img: image.img1,
+        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
+        sold: "2",
+        newCost: '32.038.000',
+        oldCost: "32.050.000",
+        total: 55,
+        discount: "10%",
+    },
+    {
+        img: image.img1,
+        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
+        sold: "2",
+        newCost: '32.038.000',
+        oldCost: "32.050.000",
+        total: 55,
+        discount: "10%",
+    },
+    // Add more products as needed
+];
+export default products;

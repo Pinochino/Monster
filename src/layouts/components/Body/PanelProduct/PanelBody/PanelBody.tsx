@@ -4,86 +4,12 @@ import React from "react";
 import style from './PanelBody.module.scss';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Keyboard, Navigation } from "swiper/modules";
-import image from "~/assets/images/Product/image";
+
 import CardContent from "~/components/CardContent";
+import products from "./products";
 
 const cx = classNames.bind(style);
 
-const products = [
-    {
-        img: image.img1,
-        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
-        sold: "2",
-        newCost: '32.038.000',
-        oldCost: "32.050.000",
-        total: 55,
-        discount: "10%",
-    },
-    {
-        img: image.img1,
-        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
-        sold: "2",
-        newCost: '32.038.000',
-        oldCost: "32.050.000",
-        total: 55,
-        discount: "10%",
-    },
-    {
-        img: image.img1,
-        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
-        sold: "2",
-        newCost: '32.038.000',
-        oldCost: "32.050.000",
-        total: 55,
-        discount: "10%",
-    },
-    {
-        img: image.img1,
-        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
-        sold: "2",
-        newCost: '32.038.000',
-        oldCost: "32.050.000",
-        total: 55,
-        discount: "10%",
-    },
-    {
-        img: image.img1,
-        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
-        sold: "2",
-        newCost: '32.038.000',
-        oldCost: "32.050.000",
-        total: 55,
-        discount: "10%",
-    },
-    {
-        img: image.img1,
-        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
-        sold: "2",
-        newCost: '32.038.000',
-        oldCost: "32.050.000",
-        total: 55,
-        discount: "10%",
-    },
-    {
-        img: image.img1,
-        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
-        sold: "2",
-        newCost: '32.038.000',
-        oldCost: "32.050.000",
-        total: 55,
-        discount: "10%",
-    },
-    {
-        img: image.img1,
-        title: "Acer Chromebook Plus 514 Laptop - 14 WUXGA 1920...",
-        sold: "2",
-        newCost: '32.038.000',
-        oldCost: "32.050.000",
-        total: 55,
-        discount: "10%",
-    },
-    // Add more products as needed
-];
 
 function PanelBody() {
     return (
@@ -117,7 +43,7 @@ function PanelBody() {
                 paddingLeft: '10px',
                 right: '0',
             },
-
+            mb: '3rem'
 
         }}>
             <Swiper
@@ -134,13 +60,14 @@ function PanelBody() {
                         <Card variant="outlined" sx={{ p: '10px' }}>
                             <CardContent
                                 img={product.img}
-                                display={true}
+                                displayCartProgress={true}
                                 title={product.title}
                                 sold={product.sold}
                                 newCost={product.newCost}
                                 oldCost={product.oldCost}
                                 total={product.total}
                                 discount={product.discount}
+                                
                             />
                         </Card>
                     </SwiperSlide>

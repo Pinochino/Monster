@@ -29,4 +29,13 @@
     .panel-body{
         max-width: var(--max-width);
     }
+
+    .panel-image{
+        min-width: var(--max-width);
+    }
+}
+.panel-image{
+    img {
+        border-radius: 10px;
+    }
 }
