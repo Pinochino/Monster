@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import style from "./CardContent.module.scss";
 import { Link } from "react-router-dom";
 import Image from "../Image";
-import { Box,Rating } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Box, Rating } from "@mui/material";
 import Button from "../Button";
 
 const cx = classNames.bind(style);
@@ -119,22 +118,21 @@ function CardContent({
     }
 
     const [hover, setHover] = useState(false);
-    useEffect(() => {
-        setInterval(() => {
-            setHover(true)
-        }, 8000)
-    })
-    
+    // useEffect(() => {
+    //     setInterval(() => {
+    //         setHover(true)
+    //     }, 8000)
+    // })
+
     return (
-        <Comp {...props} className={cx("wrapper")}
-        
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        <Comp {...props} className={cx("wrapper", { hover })}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
         >
             <CardImage src={img} alt="product" discount={discount} />
             <Box display="block">
                 <CardTitle title={title} />
-                <Box>
+                <Box className={cx('wrapper-body', {invisible : hover})}>
                     <CardStars sold={sold} />
                     <Box display="inline-flex" justifyContent="space-between">
                         <span className={cx("newCost")}>
@@ -145,7 +143,7 @@ function CardContent({
                         </sup>
                     </Box>
                     <CardProgress sold={sold} total={total} />
-                    {hover ? <Button primary >Hello</Button> : null}
+                    <Button primary className={cx('button', { visible: hover })}>Hello</Button>
                 </Box>
             </Box>
         </Comp>
@@ -155,4 +153,3 @@ function CardContent({
 export default CardContent;
 
 
-// = 'hover' ? <visible button> : <invisible></invisible>

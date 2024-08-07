@@ -1,10 +1,12 @@
-package com.example.backend.entity;
+package com.example.backend.entity.User;
 
+import com.example.backend.entity.Product.Product;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -42,4 +44,6 @@ public class User {
 
     @NotBlank(message = "Please enter the user's image")
     String poster;
+
+    List<Product> productList;
 }

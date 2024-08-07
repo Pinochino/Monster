@@ -1,7 +1,7 @@
 package com.example.backend.service.user;
 
 import com.example.backend.dto.UserDto;
-import com.example.backend.entity.User;
+import com.example.backend.entity.User.User;
 import com.example.backend.mapper.UserMapper;
 import com.example.backend.repository.UserRepository;
 import com.example.backend.service.file.FileService;
