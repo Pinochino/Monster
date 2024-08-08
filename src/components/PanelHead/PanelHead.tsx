@@ -1,10 +1,12 @@
-import { Box, List, ListItemText, Typography } from "@mui/material";
+import { Box, List, ListItemText, ToggleButton, Typography } from "@mui/material";
 import classNames from "classnames/bind";
-import React from "react";
+import React, {  useState } from "react";
 import style from "./PanelHead.module.scss";
 
 import { BsChevronDoubleRight } from "react-icons/bs";
 import { CiClock1 } from "react-icons/ci";
+import { tabs } from "./PanelHeadData";
+
 
 const cx = classNames.bind(style);
 interface PanelHead {
@@ -54,20 +56,15 @@ const PanelCategory = () => {
   )
 }
 
+
 const PanelProperty = () => {
   return (
     <Box flex='0.8'>
       <List sx={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', flex:'0.6' }} className={cx('properties')}>
-        <ListItemText><button>Máy tính & laptop</button></ListItemText>
-        <ListItemText><button>Đồng hồ</button></ListItemText>
-        <ListItemText><button>Thời trang nam</button></ListItemText>
-        <ListItemText><button>Thời trang nữ</button></ListItemText>
-        <ListItemText><button>Mẹ & bé</button></ListItemText>
-        <ListItemText><button>Nhà cửa & đời sống</button></ListItemText>
-        <ListItemText><button>Sắc đẹp</button></ListItemText>
-        <ListItemText><button>Sức khỏe</button></ListItemText>
-        <ListItemText><button>Giày dép nữ</button></ListItemText>
-        <ListItemText><button>Thiết bị điện tử</button></ListItemText>
+        {tabs.map((tab, index) => (
+          <ListItemText key={index}><button>{tab}</button></ListItemText>
+        ))}
+       
       </List>
 
     </Box>
@@ -83,6 +80,8 @@ function PanelHead({
   property = false,
   icon = false,
 }) {
+
+ 
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center" p='0 1.4rem'>
       <Box

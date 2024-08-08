@@ -208,6 +208,7 @@ function CardContent({
 
     const [hover, setHover] = useState(false);
     const[open, setOpen] = useState(false);
+    
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
