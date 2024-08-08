@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from 'react';
 import PanelHead from "~/components/PanelHead";
-import PanelBody from "../PanelProduct/PanelBody";
+import GeneralBody from "~/components/GeneralBody";
 
 function PanelSale() {
     return (
@@ -12,9 +12,7 @@ function PanelSale() {
                 <PanelHead icon={true} title='HOT DEALS' time={false} category={true} property={false} text={undefined} />
             </Box>
             <Box component="section"  >
-                <PanelBody />
-                <PanelBody />
-
+                <GeneralBody />
             </Box>
         </Box>
     );

@@ -60,12 +60,12 @@ function PanelBody() {
                         <Card variant="outlined" sx={{ p: '10px' }}>
                             <CardContent
                                 img={product.img}
-                                displayCartProgress={true}
                                 title={product.title}
                                 sold={product.sold}
                                 newCost={product.newCost}
                                 oldCost={product.oldCost}
                                 total={product.total}
+                                displayCartProgress={true}
                                 discount={product.discount}
                                 
                             />

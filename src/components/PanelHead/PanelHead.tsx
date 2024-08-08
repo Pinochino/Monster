@@ -58,16 +58,16 @@ const PanelProperty = () => {
   return (
     <Box flex='0.8'>
       <List sx={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', flex:'0.6' }} className={cx('properties')}>
-        <ListItemText>Máy tính & laptop</ListItemText>
-        <ListItemText>Đồng hồ</ListItemText>
-        <ListItemText>Thời trang nam</ListItemText>
-        <ListItemText>Thời trang nữ</ListItemText>
-        <ListItemText>Mẹ & bé</ListItemText>
-        <ListItemText>Nhà cửa & đời sống</ListItemText>
-        <ListItemText>Sắc đẹp</ListItemText>
-        <ListItemText>Sức khỏe</ListItemText>
-        <ListItemText>Giày dép nữ</ListItemText>
-        <ListItemText>Thiết bị điện tử</ListItemText>
+        <ListItemText><button>Máy tính & laptop</button></ListItemText>
+        <ListItemText><button>Đồng hồ</button></ListItemText>
+        <ListItemText><button>Thời trang nam</button></ListItemText>
+        <ListItemText><button>Thời trang nữ</button></ListItemText>
+        <ListItemText><button>Mẹ & bé</button></ListItemText>
+        <ListItemText><button>Nhà cửa & đời sống</button></ListItemText>
+        <ListItemText><button>Sắc đẹp</button></ListItemText>
+        <ListItemText><button>Sức khỏe</button></ListItemText>
+        <ListItemText><button>Giày dép nữ</button></ListItemText>
+        <ListItemText><button>Thiết bị điện tử</button></ListItemText>
       </List>
 
     </Box>

@@ -1,0 +1,77 @@
+import image from "~/assets/images/Product/image";
+
+
+const GeneralBodyData = [
+    {
+        img: image.img1,
+        title: "Sản phẩm này không phải là thuốc nên không thể thay thế thuốc chữa bệnh",
+        check: true,
+        newText: 'new',
+        oldCost:"10.000.000",
+        newCost:"25.000.000",
+        address: "Hai Phong",
+        value: 6,
+        total: 3,
+        displayCartSale: true,
+    },
+    {
+        img: image.img1,
+        title: "Sản phẩm này không phải là thuốc nên không thể thay thế thuốc chữa bệnh",
+        check: true,
+        discount: 'new',
+        oldCost:"10.000.000",
+        newCost:"25.000.000",
+        address: "Hai Phong",
+        value: 7,
+        sold: '8',
+        displayCartSale: true,
+    },
+    {
+        img: image.img1,
+        title: "Sản phẩm này không phải là thuốc nên không thể thay thế thuốc chữa bệnh",
+        check: true,
+        discount: 'new',
+        oldCost:"10.000.000",
+        newCost:"25.000.000",
+        address: "Hai Phong",
+        value: 9,
+        hover: true,
+        displayCartSale: true,
+    },
+    {
+        img: image.img1,
+        title: "Sản phẩm này không phải là thuốc nên không thể thay thế thuốc chữa bệnh",
+        discount: 'new',
+        check: true,
+        oldCost:"10.000.000",
+        newCost:"25.000.000",
+        address: "Hai Phong",
+        value: 10,
+        displayCartSale: true,
+    },
+    {
+        img: image.img1,
+        title: "Sản phẩm này không phải là thuốc nên không thể thay thế thuốc chữa bệnh",
+        discount: 'new',
+        check: true,
+        oldCost:"10.000.000",
+        newCost:"25.000.000",
+        address: "Hai Phong",
+        value: 9,
+        displayCartSale: true,
+    },
+    {
+        img: image.img1,
+        title: "Sản phẩm này không phải là thuốc nên không thể thay thế thuốc chữa bệnh",
+        discount: 'new',
+        check: true,
+        oldCost:"10.000.000",
+        newCost:"25.000.000",
+        address: "Hai Phong",
+        value: 8,
+        displayCartSale: true,
+    },
+  
+    
+]
+export default GeneralBodyData;

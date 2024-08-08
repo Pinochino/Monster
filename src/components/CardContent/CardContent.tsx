@@ -8,7 +8,8 @@ import { CiHeart } from "react-icons/ci";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaReact } from "react-icons/fa";
 import { BsCheckLg } from "react-icons/bs";
-import { hover } from "@testing-library/user-event/dist/hover";
+import ModalBank from "../Modal/ModalBank";
+
 
 
 const cx = classNames.bind(style);
@@ -23,18 +24,22 @@ interface CardProps {
     newCost?: string;
     total?: number;
     value?: number;
+    newText?: string,
     img?: string;
     discount?: string;
-    addrress?: string;
+    address?: string;
     sold?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
     to?: string;
     href?: string;
 }
 
-const CardImage = ({ src, alt, discount, hover }) => (
+const CardImage = ({ src, alt, discount, hover, newText }) => {
+
+    let myClassName = discount ? "discount" : newText ? "newText" : '';
+    return (
     <Box display="flex" justifyContent="center">
-        <span className={cx("discount", { hover: hover })}>{discount}</span>
+        <span className={cx(myClassName, { hover: hover })}>{discount || newText}</span>
         <Image
             scaledown
             zoomout
@@ -48,7 +53,8 @@ const CardImage = ({ src, alt, discount, hover }) => (
             href={undefined}
         />
     </Box>
-);
+    )
+}
 
 const CardTitle = ({ title, hover }) => (
     <Box>
@@ -145,21 +151,23 @@ const CardPrice = ({ hover, newCost, oldCost }) => {
     );
 };
 
-const CardButton = ({ hover }) => {
+const CardButton = ({ hover, onClick }) => {
     return (
         <Box display="flex" justifyContent="center" alignItems="center">
-            <button className={cx("button", { hover: hover })}>
+            <button className={cx("button", { hover: hover })}  onClick={onClick}>
                 Thêm vào giỏ hàng
             </button>
         </Box>
     );
 };
 
-const CardSale = ({ hover, address, check, value }) => {
+const CardSale = ({ hover, address, check, total }) => {
     return (
-        <Box className={cx("CardSale", { hover: hover })}>
-            {check && <BsCheckLg />}
-            <span>Còn <span>{value}</span> sản phẩm </span>
+        <Box className={cx("CardSale", { hover: hover })} display='flex' alignItems='center' justifyContent='space-between'>
+            <Box>
+                {check && <BsCheckLg  color="green"/>}
+                <span><span style={{color: 'green'}}>Còn </span><span>{total} </span><span>sản phẩm</span></span>
+            </Box>
             <span>{address}</span>
         </Box>
     )
@@ -171,6 +179,8 @@ function CardContent({
     displayCartSale = false,
     check = false,
     title,
+    address,
+    newText,
     oldCost,
     newCost,
     total,
@@ -197,6 +207,9 @@ function CardContent({
     }
 
     const [hover, setHover] = useState(false);
+    const[open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return (
         <Comp
@@ -205,7 +218,7 @@ function CardContent({
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            <CardImage src={img} alt="product" discount={discount} hover={hover} />
+            <CardImage src={img} alt="product" discount={discount} hover={hover} newText={newText} />
             <Box display="block">
                 <CardTitle title={title} hover={hover} />
                 <Box>
@@ -213,10 +226,12 @@ function CardContent({
                     <CardGroup hover={hover} />
                     <CardPrice hover={hover} newCost={newCost} oldCost={oldCost} />
                     {displayCartProgress ? <CardProgress sold={sold} total={total} hover={hover} /> : null}
-                    {displayCartSale ? <CardSale hover={undefined} address={undefined} check={check} value={undefined} /> : null}
-                    <CardButton hover={hover} />
+                    {displayCartSale ? <CardSale hover={hover} address={address} check={check} total={total} /> : null}
+                    <CardButton hover={hover} onClick={handleOpen}/>
+
                 </Box>
             </Box>
+            <ModalBank open={open} handleClose={handleClose} />
         </Comp>
     );
 }
