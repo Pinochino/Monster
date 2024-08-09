@@ -2,6 +2,7 @@ package com.example.backend.service.user;
 
 
 import com.example.backend.dto.UserDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,11 +17,15 @@ public interface UserService {
 
     UserDto getUserById(UUID id);
 
-    UserDto createUser(UserDto userDto, MultipartFile file) throws IOException;
+    ResponseEntity<?> createUser(UserDto userDto, MultipartFile file) throws IOException;
 
     UserDto update(UUID id, UserDto userDto, MultipartFile file) throws IOException;
 
     String deleteUserById(UUID id) throws IOException;
 
+
+
     Boolean checkUserByEmailAndPassword(String email, String password);
+
+    boolean existsByUsername(String username);
 }

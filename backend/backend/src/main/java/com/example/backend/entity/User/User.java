@@ -45,5 +45,4 @@ public class User {
     @NotBlank(message = "Please enter the user's image")
     String poster;
 
-    List<Product> productList;
 }

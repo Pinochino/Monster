@@ -1,6 +1,7 @@
-import { Box, CardContent, Tab, Tabs } from "@mui/material";
+import { Box, Grid, Tab, Tabs } from "@mui/material";
 import React from "react";
 import { PanelHeadData, tabs } from "../PanelHead/PanelHeadData";
+import CardContent from "../CardContent";
 
 interface TabProps {
     children?: React.ReactNode;
@@ -50,24 +51,25 @@ function TabNavigation() {
                     ))}
                 </Tabs>
             </Box>
-            {tabs.map((tab, index) => (
-                <CustomTabPanel value={value} index={index}>
-                    {PanelHeadData[tab].map((data, dataIndex) => (
-                        <CardContent
-                            key={dataIndex}
-                            img={data.img}
-                            title={data.title}
-                            sold={data.sold}
-                            newCost={data.newCost}
-                            oldCost={data.oldCost}
-                            total={data.total}
-                            displayCartProgress={true}
-                            discount={data.discount}
-                        />
-                    )
-                    )}
-                </CustomTabPanel>
-            ))}
+           {Object.keys(PanelHeadData).map(data => (
+            <Box>
+                {PanelHeadData[data].map((product, index) => (
+                  <Grid>
+                      <CardContent 
+                    key={index}
+                    img={product.img}
+                    title={product.title}
+                    check={product.check}
+                    oldCost={product.oldCost}
+                    newCost={product.newCost}
+                    value={product.value}
+                    total={product.total}
+                    displayCartSale={product.displayCartSale}
+                    />
+                  </Grid>
+                ))}
+            </Box>
+           ))}
         </Box>
     );
 }

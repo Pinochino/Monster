@@ -17,6 +17,8 @@ import java.io.InputStream;
 
 @RestController
 @RequestMapping("/file/")
+@CrossOrigin(origins = "*")
+
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class FileController {
 

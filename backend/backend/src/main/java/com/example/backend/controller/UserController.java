@@ -16,7 +16,7 @@ import java.util.UUID;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api")
 public class UserController {
 
@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/user", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<UserDto> createUser(@RequestPart() String request,
+    public ResponseEntity<?> createUser(@RequestPart() String request,
                                                    @RequestPart() MultipartFile file) throws IOException {
        UserDto userResponse = convertToUserResponse(request);
        return new ResponseEntity<>(userService.createUser(userResponse, file), HttpStatus.CREATED);
@@ -63,8 +63,8 @@ public class UserController {
     }
 
     @PostMapping("/check")
-    public ResponseEntity<Boolean> checkUserByEmailAndPassword(String email, String password){
-        if (email == null || password == null) {
+    public ResponseEntity<Boolean> checkUser(String username, String email, String password){
+        if (email == null || password == null || username == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
 
@@ -77,4 +77,12 @@ public class UserController {
         }
 
     }
+    @GetMapping("/existsByUsername")
+    public ResponseEntity<Boolean> existsByUsername(@RequestParam String username) {
+        // Check if the username exists
+        boolean exists = userService.existsByUsername(username);
+        return ResponseEntity.ok(exists);
+    }
+
+
 }

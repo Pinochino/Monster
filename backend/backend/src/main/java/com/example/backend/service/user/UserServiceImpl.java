@@ -1,8 +1,8 @@
 package com.example.backend.service.user;
 
 import com.example.backend.dto.UserDto;
+import com.example.backend.entity.User.Notification;
 import com.example.backend.entity.User.User;
-import com.example.backend.mapper.UserMapper;
 import com.example.backend.repository.UserRepository;
 import com.example.backend.service.file.FileService;
 import jakarta.transaction.Transactional;
@@ -10,6 +10,7 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,17 +29,15 @@ import java.util.UUID;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserServiceImpl implements UserService {
     UserRepository userRepository;
-    UserMapper userMapper;
     FileService fileService;
     String baseUrl;
     String path;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, FileService fileService,
+    public UserServiceImpl(UserRepository userRepository, FileService fileService,
                            @Value(value = "${base.url}") String baseUrl,
                            @Value("${project.poster}") String path) {
         this.userRepository = userRepository;
-        this.userMapper = userMapper;
         this.fileService = fileService;
         this.baseUrl = baseUrl;
         this.path = path;
@@ -95,7 +94,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserDto createUser(UserDto userDto, MultipartFile file) throws IOException {
+    public ResponseEntity<?> createUser(UserDto userDto, MultipartFile file) throws IOException {
+        // check Username have already existed
+        if (userRepository.existsByUsername(userDto.getUsername())) {
+            return ResponseEntity.badRequest().body(new Notification(" Username have already existed: " + userDto.getUsername()));
+        }
+
+        // check email have already existed
+        if (userRepository.existsUserByEmail(userDto.getEmail())) {
+            return ResponseEntity.badRequest().body(new Notification(" Email have already existed: " + userDto.getEmail()));
+        }
+
+        if (!userDto.getPassword().equals(userDto.getRepassword())) {
+            return ResponseEntity.badRequest().body(new Notification(" Passwords do not match. "));
+        }
 
         // upload the file
         String uploadedFileName = fileService.uploadFile(path, file);
@@ -105,7 +117,7 @@ public class UserServiceImpl implements UserService {
 
         // map UserCreationRequest to User object
         User user = new User(
-                null,
+               null,
                 userDto.getSurname(),
                 userDto.getUsername(),
                 userDto.getEmail(),
@@ -114,14 +126,14 @@ public class UserServiceImpl implements UserService {
                 userDto.getPoster()
         );
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
-        user.setRepassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
 
         // save the user object -> saved User object
         User savedUser = userRepository.save(user);
 
         // generate the posterUrl
-        return getUserResponse(uploadedFileName, savedUser);
+        return ResponseEntity.ok().body(getUserResponse(uploadedFileName, savedUser));
     }
 
     @Override
@@ -213,6 +225,11 @@ public class UserServiceImpl implements UserService {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
     }
 
 

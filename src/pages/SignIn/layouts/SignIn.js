@@ -5,8 +5,7 @@ import style from './SignIn.module.scss';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import images from "~/assets/images/Image";
 import { Link } from "react-router-dom";
-import Validation from "./Validation";
-import { registerAPICall } from "~/service/AuthService";
+import axios from "axios";
 
 
 const cx = classNames.bind(style);
@@ -14,6 +13,7 @@ const cx = classNames.bind(style);
 function SignIn() {
 
     const [openPassword, setOpenPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const [image, setImage] = useState('');
     const [values, setValues] = useState({
         image: '',
@@ -49,13 +49,20 @@ function SignIn() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(values);
-        setError(Validation(values));
+        // setError(Validation(values));
+        const url = `http://localhost:8080/api/user/existsByUsername?username=${values.username}`;
 
         try {
-            const response = await registerAPICall(values);
-            alert("User has signed in successfully: " + response);
+            const response = await axios.post(url);
+            const data = await response.data;
+            if (data === "true") {
+                setErrorMessage("Username have already existed: ");
+                return true;
+            }
+            return false;
         } catch (error) {
             alert(error);
+            return false;
         }
     }
 
